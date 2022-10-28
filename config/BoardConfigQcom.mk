@@ -68,7 +68,14 @@ ifneq ($(filter $(UM_5_4_FAMILY),$(TARGET_BOARD_PLATFORM)),)
     SOONG_CONFIG_qtidisplay_gralloc4 := true
 endif
 
+<<<<<<< HEAD
 # Mark GRALLOC_USAGE_HW_2D, GRALLOC_USAGE_EXTERNAL_DISP and GRALLOC_USAGE_PRIVATE_WFD as valid gralloc bits
+=======
+ifneq ($(filter $(UM_5_10_FAMILY),$(TARGET_BOARD_PLATFORM)),)
+    TARGET_USES_QCOM_AUDIO_AR ?= true
+endif
+
+>>>>>>> 96608946 (qcom: set TARGET_USES_QCOM_AUDIO_AR for the UM 5.10 family)
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
 
 # Mark GRALLOC_USAGE_EXTERNAL_DISP as valid gralloc bit
