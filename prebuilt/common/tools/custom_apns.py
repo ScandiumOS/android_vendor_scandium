@@ -15,8 +15,8 @@
 # limitations under the License.
 #
 
+import re
 import sys
-from xml.dom.minidom import parseString
 
 def main(argv):
     reload(sys)
@@ -32,6 +32,7 @@ def main(argv):
     custom_apn_names = set()
     with open(custom_override_file, 'r') as f:
         for line in f:
+<<<<<<< HEAD:prebuilt/common/tools/custom_apns.py
             xmltree = parseString(line)
             carrier = xmltree.getElementsByTagName('apn')[0].getAttribute('carrier')
 <<<<<<< HEAD:prebuilt/common/tools/custom_apns.py
@@ -43,6 +44,9 @@ def main(argv):
 =======
             custom_apn_names.add('carrier="' + carrier + '"')
 >>>>>>> 617c2edf (Include `carrier=` in carrier match string):tools/custom_apns.py
+=======
+            custom_apn_names.add(re.search(r'carrier="[^"]+"', line).group(0))
+>>>>>>> 05f25a79 (Use a RegEx to get carrier instead of XML parsing):tools/custom_apns.py
 
     with open(original_file, 'r') as input_file:
         with open(output_file_path, 'w') as output_file:
