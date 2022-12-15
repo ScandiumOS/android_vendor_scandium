@@ -246,6 +246,12 @@
         <item>notification_assistant/generate_actions=true</item>
         <item>notification_assistant/generate_replies=true</item>
 
+<<<<<<< HEAD
 >>>>>>> b164684e (device_config: update to android 13)
+=======
+        <!-- Globally enable the new photo picker -->
+        <item>storage_native_boot/take_over_get_content=true</item>
+
+>>>>>>> 030dda33 (device_config: Globally enable the new photo picker)
     </string-array>
 </resources>
