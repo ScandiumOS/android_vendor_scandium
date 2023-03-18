@@ -121,6 +121,82 @@ surfaceflinger_udfps_lib {
     },
 }
 
+<<<<<<< HEAD
+=======
+soong_config_module_type {
+    name: "target_uses_prebuilt_dynamic_partitions",
+    module_type: "cc_defaults",
+    config_namespace: "customGlobalVars",
+    bool_variables: ["target_uses_prebuilt_dynamic_partitions"],
+    properties: ["cppflags"],
+}
+
+target_uses_prebuilt_dynamic_partitions {
+    name: "target_uses_prebuilt_dynamic_partitions_defaults",
+    soong_config_variables: {
+        target_uses_prebuilt_dynamic_partitions: {
+            cppflags: ["-DTARGET_USES_PREBUILT_DYNAMIC_PARTITIONS"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "needs_camera_boottime",
+    module_type: "cc_defaults",
+    config_namespace: "customGlobalVars",
+    bool_variables: ["needs_camera_boottime"],
+    properties: ["cppflags"],
+}
+
+needs_camera_boottime {
+    name: "needs_camera_boottime_defaults",
+    soong_config_variables: {
+        needs_camera_boottime: {
+            cppflags: ["-DTARGET_CAMERA_BOOTTIME_TIMESTAMP"],
+        },
+    },
+}
+
+
+soong_config_module_type {
+    name: "bootloader_message_offset",
+    module_type: "cc_defaults",
+    config_namespace: "customGlobalVars",
+    value_variables: ["bootloader_message_offset"],
+    properties: [
+        "cflags",
+        "export_cflags",
+    ],
+}
+
+bootloader_message_offset {
+    name: "bootloader_message_offset_defaults",
+    soong_config_variables: {
+        bootloader_message_offset: {
+            cflags: ["-DBOARD_RECOVERY_BLDRMSG_OFFSET=%s"],
+            export_cflags: ["-DBOARD_RECOVERY_BLDRMSG_OFFSET=%s"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "egl_display_array",
+    module_type: "cc_defaults",
+    config_namespace: "customGlobalVars",
+    bool_variables: ["uses_egl_display_array"],
+    properties: ["cflags"],
+}
+
+egl_display_array {
+    name: "egl_display_array_defaults",
+    soong_config_variables: {
+        uses_egl_display_array: {
+            cflags: ["-DEGL_DISPLAY_ARRAY"],
+        },
+    },
+}
+
+>>>>>>> 6c8a2067 (soong: Bring bootloader_message_offset back)
 // NVIDIA specific config modules
 soong_config_module_type {
     name: "nvidia_enhancements",
