@@ -201,6 +201,13 @@ ifneq ($(TARGET_KERNEL_CLANG_COMPILE), false)
     endif
 endif
 
+<<<<<<< HEAD
+=======
+# Pass prebuilt LZ4 path
+KERNEL_MAKE_FLAGS += LZ4=$(BUILD_TOP)/prebuilts/kernel-build-tools/linux-x86/bin/lz4
+
+# Since Linux 4.16, flex and bison are required
+>>>>>>> 53eb054d (kernel: Use lz4 from Google prebuilts)
 KERNEL_MAKE_FLAGS += LEX=$(BUILD_TOP)/prebuilts/build-tools/$(HOST_PREBUILT_TAG)/bin/flex
 KERNEL_MAKE_FLAGS += YACC=$(BUILD_TOP)/prebuilts/build-tools/$(HOST_PREBUILT_TAG)/bin/bison
 KERNEL_MAKE_FLAGS += M4=$(BUILD_TOP)/prebuilts/build-tools/$(HOST_PREBUILT_TAG)/bin/m4
