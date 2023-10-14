@@ -1,13 +1,18 @@
+<<<<<<< HEAD
 SCANDIUM_VERSION_BASE := 1.0
 SCANDIUM_BUILD_CODENAME := Holocaust
 SCANDIUM_BUILD_TYPE ?= UNOFFICIAL
 SCANDIUM_OTA_BRANCH := 13
+=======
+CUSTOM_BUILD_TYPE ?= ALPHA
+>>>>>>> cb2eab4c (Initial changes for A14)
 
 # Set all versions
 BUILD_DATE := $(shell date -u +%d%m%Y)
 BUILD_TIME := $(shell date -u +%H%M)
 ROM_FINGERPRINT := Scandium/$(SCANDIUM_VERSION_BASE)/$(PLATFORM_VERSION)/$(SCANDIUM_BUILD_TYPE)/$(BUILD_ID)/$(BUILD_DATE)/$(BUILD_TIME)
 
+<<<<<<< HEAD
 ifndef
      SCANDIUM_VERSION := Scandium-v$(SCANDIUM_VERSION_BASE)-$(SCANDIUM_OTA_BRANCH)-$(SCANDIUM_BUILD)-$(BUILD_DATE)-$(SCANDIUM_BUILD_TYPE)-$(BUILD_TIME)
  ifeq ($(USE_GAPPS),true)
@@ -29,3 +34,9 @@ SCANDIUM_PROPERTIES := \
 
 # Var definition for jenkins script
 $(info) $(shell echo $(SCANDIUM_VERSION) > $(OUT_DIR)/var-file_name)
+=======
+CUSTOM_PLATFORM_VERSION := 14.0
+
+CUSTOM_VERSION := PixelExperience_$(CUSTOM_BUILD)-$(CUSTOM_PLATFORM_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_BUILD_TYPE)
+CUSTOM_VERSION_PROP := fourteen
+>>>>>>> cb2eab4c (Initial changes for A14)

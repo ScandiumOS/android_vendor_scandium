@@ -8,6 +8,19 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
+<<<<<<< HEAD
+=======
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    dalvik.vm.debug.alloc=0 \
+    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
+    ro.error.receiver.system.apps=com.google.android.gms \
+    ro.com.android.dataroaming=false \
+    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
+    ro.com.android.dateformat=MM-dd-yyyy \
+    persist.sys.disable_rescue=true
+
+>>>>>>> cb2eab4c (Initial changes for A14)
 ifeq ($(TARGET_BUILD_VARIANT),eng)
 # Disable ADB authentication
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=0
@@ -241,25 +254,31 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Face Unlock
-TARGET_FACE_UNLOCK_SUPPORTED ?= true
-ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
-PRODUCT_PACKAGES += \
-    FaceUnlockService
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
-endif
+#TARGET_FACE_UNLOCK_SUPPORTED ?= true
+#ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
+#PRODUCT_PACKAGES += \
+#    FaceUnlockService
+#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+#    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
+#endif
 
 # Art
 include vendor/scandium/config/art.mk
 
+<<<<<<< HEAD
 # Branding
 include vendor/scandium/config/branding.mk
+=======
+# Audio
+#$(call inherit-product, vendor/aosp/config/audio.mk)
+>>>>>>> cb2eab4c (Initial changes for A14)
 
 # Packages
 include vendor/scandium/config/packages.mk
 
+<<<<<<< HEAD
 # Themes
 include vendor/themes/common.mk
 #-include packages/apps/Plugins/plugins.mk
@@ -271,3 +290,21 @@ DEVICE_PACKAGE_OVERLAYS += vendor/scandium/overlay/common
 # QTI Components
 $(call inherit-product-if-exists, device/qcom/common/common.mk)
 $(call inherit-product-if-exists, packages/apps/GameSpace/gamespace.mk)
+=======
+# Fonts
+#$(call inherit-product, vendor/aosp/config/fonts.mk)
+
+# GMS
+#$(call inherit-product, vendor/gms/products/gms.mk)
+
+# OTA
+#$(call inherit-product, vendor/aosp/config/ota.mk)
+
+# RRO Overlays
+#$(call inherit-product, vendor/aosp/config/rro_overlays.mk)
+
+# Pixel Framework
+#$(call inherit-product, vendor/pixel-framework/config.mk)
+
+-include $(WORKSPACE)/build_env/image-auto-bits.mk
+>>>>>>> cb2eab4c (Initial changes for A14)
