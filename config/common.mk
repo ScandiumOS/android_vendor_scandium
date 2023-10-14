@@ -100,7 +100,99 @@ ifeq ($(USE_PIXEL_CHARGING),true)
 PRODUCT_PACKAGES += \
     charger_res_images \
     product_charger_res_images
+<<<<<<< HEAD
 endif
+=======
+
+# Filesystems tools
+PRODUCT_PACKAGES += \
+    fsck.ntfs \
+    mke2fs \
+    mkfs.ntfs \
+    mount.ntfs
+
+# Storage manager
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.storage_manager.enabled=true
+
+# Media
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    media.recorder.show_manufacturer_and_model=true
+
+# Overlays
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    vendor/aosp/overlay
+
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/aosp/overlay/common
+
+# TouchGestures
+PRODUCT_PACKAGES += \
+    TouchGestures
+
+# One Handed mode
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.support_one_handed_mode?=true \
+
+# Dex preopt
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUIGoogle \
+    NexusLauncherRelease
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    dalvik.vm.systemuicompilerfilter=speed
+
+# SystemUI plugins
+PRODUCT_PACKAGES += \
+    QuickAccessWallet
+
+# Gboard configuration
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.theme_id=5 \
+    ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
+
+# SetupWizard configuration
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.setupwizard.enterprise_mode=1 \
+    ro.setupwizard.rotation_locked=true \
+    setupwizard.enable_assist_gesture_training=true \
+    setupwizard.theme=glif_v3_light \
+    setupwizard.feature.baseline_setupwizard_enabled=true \
+    setupwizard.feature.skip_button_use_mobile_data.carrier1839=true \
+    setupwizard.feature.show_pai_screen_in_main_flow.carrier1839=false \
+    setupwizard.feature.show_pixel_tos=false
+
+# StorageManager configuration
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.storage_manager.show_opt_in=false
+
+# OPA configuration
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.opa.eligible_device=true
+
+# Google legal
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
+
+# Google Play services configuration
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.error.receiver.system.apps=com.google.android.gms \
+    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent
+
+# TextClassifier
+PRODUCT_PACKAGES += \
+	libtextclassifier_annotator_en_model \
+	libtextclassifier_annotator_universal_model \
+	libtextclassifier_actions_suggestions_universal_model \
+	libtextclassifier_lang_id_model
+
+# Camera
+#ifneq ($(PRODUCT_NO_CAMERA),true)
+#PRODUCT_PACKAGES += \
+#    Aperture
+#endif
+>>>>>>> 9d428917 (vendor: Disable aperture for now)
 
 ifeq ($(TARGET_USES_BLUR), true)
 PRODUCT_PRODUCT_PROPERTIES += \
