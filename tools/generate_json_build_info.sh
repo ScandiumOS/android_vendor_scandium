@@ -13,20 +13,24 @@ then
     version=$(grep ro\.scandium\.build\.version $out/system/build.prop | cut -d= -f2);
     romtype=$(grep ro\.scandium\.build\.type $out/system/build.prop | cut -d= -f2);
     json_output="$out/$device.json"
-    
-    echo "{" > "$json_output"
-    echo "  \"response\": [" >> "$json_output"
-    echo "    {" >> "$json_output"
-    echo "      \"maintainer\": \"$maintainer\"," >> "$json_output"
-    echo "      \"device\": \"$device\"," >> "$json_output"
-    echo "      \"filename\": \"$file_name\"," >> "$json_output"
-    echo "      \"timestamp\": \"$timestamp\"," >> "$json_output"
-    echo "      \"md5\": \"$md5\"," >> "$json_output"
-    echo "      \"size\": \"$file_size\"," >> "$json_output"
-    echo "      \"version\": \"$version\"," >> "$json_output"
-    echo "      \"romtype\": \"$romtype\"" >> "$json_output"
-    echo "    }" >> "$json_output"
-    echo "  ]" >> "$json_output"
-    echo "}" >> "$json_output"
+
+    if [ "$romtype" = "OFFICIAL" ] || [ "$romtype" = "official" ] || [ "$romtype" = "Official" ]; then
+      echo "{" > "$json_output"
+      echo "  \"response\": [" >> "$json_output"
+      echo "    {" >> "$json_output"
+      echo "      \"maintainer\": \"$maintainer\"," >> "$json_output"
+      echo "      \"device\": \"$device\"," >> "$json_output"
+      echo "      \"filename\": \"$file_name\"," >> "$json_output"
+      echo "      \"timestamp\": \"$timestamp\"," >> "$json_output"
+      echo "      \"md5\": \"$md5\"," >> "$json_output"
+      echo "      \"size\": \"$file_size\"," >> "$json_output"
+      echo "      \"version\": \"$version\"," >> "$json_output"
+      echo "      \"romtype\": \"$romtype\"" >> "$json_output"
+      echo "    }" >> "$json_output"
+      echo "  ]" >> "$json_output"
+      echo "}" >> "$json_output"
+    else
+      echo "Unofficial build detected, Skipping generate OTA json."
+    fi
   fi
 fi
