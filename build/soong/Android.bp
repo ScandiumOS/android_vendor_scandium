@@ -49,8 +49,6 @@ cc_library_headers {
     recovery_available: true,
 }
 
-<<<<<<< HEAD
-=======
 // Target platform agnostic config modules
 soong_config_module_type {
     name: "camera_needs_client_info",
@@ -89,7 +87,6 @@ camera_needs_client_info_lib {
     },
 }
 
->>>>>>> 190092be (vendor: soong: oneplus --> oplus)
 soong_config_module_type {
     name: "gralloc_10_usage_bits",
     module_type: "cc_defaults",
