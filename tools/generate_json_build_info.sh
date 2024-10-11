@@ -5,7 +5,12 @@ then
   file_name=$(basename "$file_path")
   out=$(dirname "$file_path")
   if [ -f "$file_path" ]; then
-    maintainer=$(grep ro\.scandium\.maintainer $out/system/build.prop | cut -d= -f2);
+    xml_file=$(find / -name "scandium_strings.xml" 2>/dev/null)
+    if [ -n "$xml_file" ]; then
+      maintainer=$(grep '<string name="maintainer_name">' "$xml_file" | sed -e 's/.*<string name="maintainer_name">//' -e 's/<\/string>.*//')
+    else
+      maintainer="Unknown Maintainer"
+    fi
     device=$(grep ro\.scandium\.device $out/system/build.prop | cut -d= -f2);
     timestamp=$(grep ro\.build\.date\.utc $out/system/build.prop | cut -d= -f2);
     md5=$(cat "$file_path.md5sum" | cut -d' ' -f1)
