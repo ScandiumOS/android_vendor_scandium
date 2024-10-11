@@ -77,6 +77,7 @@ soong_config_module_type {
         "shared_libs",
     ],
 }
+
 camera_needs_client_info_lib {
     name: "camera_needs_client_info_lib_defaults",
     soong_config_variables: {
@@ -93,6 +94,26 @@ soong_config_module_type {
     config_namespace: "scandiumGlobalVars",
     value_variables: ["additional_gralloc_10_usage_bits"],
     properties: ["cppflags"],
+}
+
+soong_config_module_type {
+    name: "aapt_version_code",
+    module_type: "java_defaults",
+    config_namespace: "lineageGlobalVars",
+    value_variables: ["aapt_version_code"],
+    properties: ["aaptflags"],
+}
+
+aapt_version_code {
+    name: "aapt_version_code_defaults",
+    soong_config_variables: {
+        aapt_version_code: {
+            aaptflags: [
+                "--version-code",
+                "%s",
+            ],
+        },
+    },
 }
 
 gralloc_10_usage_bits {
@@ -299,6 +320,37 @@ inputdispatcher_skip_event_key {
     soong_config_variables: {
         target_inputdispatcher_skip_event_key: {
             cppflags: ["-DINPUTDISPATCHER_SKIP_EVENT_KEY=%s"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "uses_legacy_fd_fbdev",
+    module_type: "cc_defaults",
+    config_namespace: "customGlobalVars",
+    bool_variables: ["uses_legacy_fd_fbdev"],
+    properties: ["cppflags"],
+}
+uses_legacy_fd_fbdev {
+    name: "uses_legacy_fd_fbdev_defaults",
+    soong_config_variables: {
+        uses_legacy_fd_fbdev: {
+            cppflags: ["-DUSES_LEGACY_FD_FBDEV"],
+        },
+    },
+}
+soong_config_module_type {
+    name: "needs_oplus_tag",
+    module_type: "cc_defaults",
+    config_namespace: "customGlobalVars",
+    bool_variables: ["needs_oplus_tag"],
+    properties: ["cppflags"],
+}
+needs_oplus_tag {
+    name: "needs_oplus_vendor_tag",
+    soong_config_variables: {
+        needs_oplus_tag: {
+            cppflags: ["-DNEEDS_OPLUS_VENDOR_TAG"],
         },
     },
 }
