@@ -33,7 +33,6 @@
         <item>privacy/permissions_hub_2_enabled=true</item>
         <item>privacy/permissions_hub_enabled=true</item>
 
-<<<<<<< HEAD
         <!-- ART heap compaction for cached apps -->
         <item>activity_manager/use_compaction=true</item>
         <!-- Allow more cached apps in the background -->
@@ -70,17 +69,7 @@
 
         <!-- Contribute app shortcuts to centralized AppSearch index -->
         <item>systemui/shortcut_appsearch_integration=true</item>
-=======
-        <!-- Enable permission hub v2 -->
-        <item>privacy/permissions_hub_enabled=true</item>
-        <item>privacy/permissions_hub_2_enabled=true</item>
->>>>>>> b164684e (device_config: update to android 13)
 
-        <!-- Adaptive Sound (Pixel 2020) -->
-        <item>device_personalization_services/AdaptiveAudio__enable_adaptive_audio=true</item>
-        <item>device_personalization_services/AdaptiveAudio__show_promo_notification=true</item>
-
-<<<<<<< HEAD
         <!-- Live Caption (Pixel 2017 + OEM) -->
         <item>device_personalization_services/Captions__enable_augmented_modality=true</item>
         <item>device_personalization_services/Captions__enable_augmented_music=true</item>
@@ -114,6 +103,7 @@
         <item>device_personalization_services/Overview__enable_proactive_hints=false</item>
         <item>device_personalization_services/Overview__enable_superpacks_pir_protocol=true</item>
         <item>device_personalization_services/Overview__min_lens_agsa_app_version=301084649</item>
+
         <!-- Disable federated learning -->
         <item>device_personalization_services/OverviewFederatedAnalytics__enable_fa=false</item>
         <item>device_personalization_services/OverviewFederatedAnalytics__enable_min_training_interval=false</item>
@@ -138,10 +128,7 @@
             is set in DeviceConfig despite being classified as native_boot
             because it's checked from Java code which then calls into JNI.
         -->
-<<<<<<< HEAD
         <item>input_native_boot/deep_press_enabled=false</item>
-=======
-=======
 
         <!-- Now Playing (Pixel 2017+) -->
         <item>device_personalization_services/device_personalization_services/NowPlaying__ambient_music_apk_music_detector_min_score=0.45</item>
@@ -164,20 +151,10 @@
         <item>device_personalization_services/device_personalization_services/NowPlaying__on_demand_retry_fingerprinter_install=true</item>
         <item>device_personalization_services/device_personalization_services/NowPlaying__youtube_export_enabled=true</item>
 
->>>>>>> 21df7a1d (vendor: SimpleDeviceConfig: Update now playing configs)
         <!-- Adaptive Sound (Pixel 2020) -->
         <item>device_personalization_services/AdaptiveAudio__enable_adaptive_audio=true</item>
         <item>device_personalization_services/AdaptiveAudio__show_promo_notification=false</item>
         <item>device_personalization_services/AdaptiveAudio__use_silence_detector_state_bug_fix=true</item>
-
-        <!-- Live Caption (Pixel 2017 + OEM) -->
-        <item>device_personalization_services/Captions__enable_augmented_modality=true</item>
-        <item>device_personalization_services/Captions__enable_augmented_modality_input=true</item>
-        <item>device_personalization_services/Captions__enable_augmented_modality_language_detection=true</item>
-        <item>device_personalization_services/Captions__enable_augmented_music=false</item>
-        <item>device_personalization_services/Captions__enable_clearcut_logging=true</item>
-        <item>device_personalization_services/Captions__enable_language_detection=true</item>
-        <item>device_personalization_services/Captions__enable_punctuations=true</item>
 
         <!-- Pixel Launcher Search -->
         <item>device_personalization_services/Echo__search_enable_app_fetcher_v2=true</item>
@@ -271,12 +248,8 @@
         <item>notification_assistant/generate_actions=true</item>
         <item>notification_assistant/generate_replies=true</item>
 
-<<<<<<< HEAD
->>>>>>> b164684e (device_config: update to android 13)
-=======
         <!-- Globally enable the new photo picker -->
         <item>storage_native_boot/take_over_get_content=true</item>
 
->>>>>>> 030dda33 (device_config: Globally enable the new photo picker)
     </string-array>
 </resources>

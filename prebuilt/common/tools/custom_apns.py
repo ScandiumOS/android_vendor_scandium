@@ -32,21 +32,7 @@ def main(argv):
     custom_apn_names = set()
     with open(custom_override_file, 'r') as f:
         for line in f:
-<<<<<<< HEAD:prebuilt/common/tools/custom_apns.py
-            xmltree = parseString(line)
-            carrier = xmltree.getElementsByTagName('apn')[0].getAttribute('carrier')
-<<<<<<< HEAD:prebuilt/common/tools/custom_apns.py
-<<<<<<< HEAD:prebuilt/common/tools/custom_apns.py
-            custom_apn_names.append(carrier)
-=======
-            custom_apn_names.add('"' + carrier + '"')
->>>>>>> 000e4983 (Fix custom_apns script):tools/custom_apns.py
-=======
-            custom_apn_names.add('carrier="' + carrier + '"')
->>>>>>> 617c2edf (Include `carrier=` in carrier match string):tools/custom_apns.py
-=======
             custom_apn_names.add(re.search(r'carrier="[^"]+"', line).group(0))
->>>>>>> 05f25a79 (Use a RegEx to get carrier instead of XML parsing):tools/custom_apns.py
 
     with open(original_file, 'r') as input_file:
         with open(output_file_path, 'w') as output_file:

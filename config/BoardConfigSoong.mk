@@ -29,11 +29,16 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
 SOONG_CONFIG_NAMESPACES += scandiumGlobalVars
 SOONG_CONFIG_scandiumGlobalVars += \
+    aapt_version_code \
     additional_gralloc_10_usage_bits \
     target_init_vendor_lib \
     target_inputdispatcher_skip_event_key \
     target_ld_shim_libs \
-    target_surfaceflinger_udfps_lib
+    target_surfaceflinger_udfps_lib \
+    target_uses_prebuilt_dynamic_partitions \
+    uses_legacy_fd_fbdev \
+    uses_egl_display_array \
+    needs_oplus_tag
 
 ifneq ($(TARGET_FORCE_BUILD_FINGERPRINT),)
 SOONG_CONFIG_scandiumGlobalVars += force_build_fingerprint
@@ -76,6 +81,19 @@ SOONG_CONFIG_scandiumGlobalVars_target_init_vendor_lib := $(TARGET_INIT_VENDOR_L
 SOONG_CONFIG_scandiumGlobalVars_target_inputdispatcher_skip_event_key := $(TARGET_INPUTDISPATCHER_SKIP_EVENT_KEY)
 SOONG_CONFIG_scandiumGlobalVars_target_ld_shim_libs := $(subst $(space),:,$(TARGET_LD_SHIM_LIBS))
 SOONG_CONFIG_scandiumGlobalVars_target_surfaceflinger_udfps_lib := $(TARGET_SURFACEFLINGER_UDFPS_LIB)
+SOONG_CONFIG_scandiumGlobalVars_aapt_version_code := $(shell date -u +%Y%m%d)
+SOONG_CONFIG_scandiumGlobalVars_camera_needs_client_info := $(TARGET_CAMERA_NEEDS_CLIENT_INFO)
+SOONG_CONFIG_scandiumGlobalVars_camera_needs_client_info_lib := $(TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB)
+SOONG_CONFIG_scandiumGlobalVars_needs_camera_boottime := $(TARGET_CAMERA_BOOTTIME_TIMESTAMP)
+SOONG_CONFIG_scandiumGlobalVars_uses_egl_display_array := $(TARGET_USES_EGL_DISPLAY_ARRAY)
+SOONG_CONFIG_scandiumGlobalVars_target_uses_prebuilt_dynamic_partitions := $(TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS)
+SOONG_CONFIG_scandiumGlobalVars_needs_oplus_tag := $(TARGET_NEEDS_OPLUS_VENDOR_TAG)
+SOONG_CONFIG_scandiumNvidiaVars_uses_nvidia_enhancements := $(NV_ANDROID_FRAMEWORK_ENHANCEMENTS)
+SOONG_CONFIG_scandiumQcomVars_supports_extended_compress_format := $(AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT)
+SOONG_CONFIG_scandiumQcomVars_uses_pre_uplink_features_netmgrd := $(TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD)
+SOONG_CONFIG_scandiumGlobalVars_uses_legacy_fd_fbdev := $(TARGET_USES_LEGACY_FD_FBDEV)
+SOONG_CONFIG_scandiumGlobalVars_gralloc_handle_has_reserved_size := $(TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE)
+
 ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_scandiumQcomVars_qcom_display_headers_namespace := vendor/qcom/opensource/commonsys-intf/display
 else
@@ -89,3 +107,4 @@ endif
 ifneq ($(TARGET_USES_NQ_NFC),true)
 PRODUCT_SOONG_NAMESPACES += hardware/nxp
 endif #TARGET_USES_NQ_NFC
+
